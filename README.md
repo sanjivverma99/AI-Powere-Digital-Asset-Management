@@ -1,6 +1,6 @@
-# AI-DAM — AI-Powered Digital Asset Management
+# NexusDAM — AI-Powered Digital Asset Management
 
-AI-DAM is a local AI-powered Digital Asset Management system for indexing, understanding, searching, and previewing mixed digital assets.
+NexusDAM is a local AI-powered Digital Asset Management system for indexing, understanding, searching, and previewing mixed digital assets.
 
 The system supports images, videos, and PDF documents stored in a local library. It extracts file metadata, uses AI to understand visual content, generates semantic embeddings, and enables natural-language search over the indexed assets.
 
@@ -12,7 +12,7 @@ The application runs locally with MongoDB, Qdrant, Ollama, and a React frontend;
 
 Traditional file browsing requires users to remember filenames, folders, or exact keywords.
 
-AI-DAM provides semantic search over a local media library. Instead of searching only by filename, users can search using natural-language descriptions such as:
+NexusDAM provides semantic search over a local media library. Instead of searching only by filename, users can search using natural-language descriptions such as:
 
 * `yellow flower`
 * `cat`
@@ -159,7 +159,7 @@ Search results combine semantic similarity with matches against AI-generated des
 ## 5. Project Structure
 
 ```text
-AI-DAM/
+NexusDAM/
 ├── backend/
 │   └── app/
 │       ├── api/
@@ -190,7 +190,7 @@ Generated/development directories such as `.venv`, `node_modules`, `dist`, and `
 
 ## 6. System Architecture
 
-AI-DAM uses separate components for metadata storage, vector search, AI processing, and the user interface.
+NexusDAM uses separate components for metadata storage, vector search, AI processing, and the user interface.
 
 ```text
                     ┌─────────────────────┐
@@ -982,7 +982,7 @@ README.md
 
 ## 30. Summary
 
-AI-DAM provides an end-to-end local workflow for:
+NexusDAM provides an end-to-end local workflow for:
 
 ```text
 Local Files
