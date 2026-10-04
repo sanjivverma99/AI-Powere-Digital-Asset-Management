@@ -15,12 +15,12 @@ Traditional file browsing requires users to remember filenames, folders, or exac
 AI-DAM provides semantic search over a local media library. Instead of searching only by filename, users can search using natural-language descriptions such as:
 
 * `yellow flower`
-* `cartoon rabbit`
-* `mountain landscape`
-* `outdoor scene`
+* `cat`
+* `mountain `
+* `outdoor `
 * `document with text`
-* `people`
-* `animal`
+* `bear`
+* `bards`
 
 The system processes each supported asset and creates a searchable representation containing:
 
@@ -382,10 +382,10 @@ This allows queries such as:
 
 ```text
 yellow flower
-mountain landscape
-cartoon rabbit
-people
-animal
+mountain 
+cat
+bard
+bears
 ```
 
 to retrieve visually relevant images even when the search terms are not present in the filename.
