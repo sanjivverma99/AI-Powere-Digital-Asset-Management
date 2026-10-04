@@ -1,0 +1,101 @@
+# =============================================================
+#  AI-Powered Digital Asset Management  –  Docker Compose
+# =============================================================
+
+services:
+
+  # ── MongoDB ──────────────────────────────────────────────────
+  mongo:
+    image: mongo:7
+    container_name: dam-mongo
+    restart: unless-stopped
+
+    ports:
+      - "27017:27017"
+
+    volumes:
+      - mongodb_data:/data/db
+
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+
+  # ── Qdrant (vector store) ───────────────────────────────────
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: dam-qdrant
+    restart: unless-stopped
+
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://localhost:6333/readyz || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+
+
+  # ── Backend (FastAPI) ───────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: dam-backend
+    restart: unless-stopped
+
+    env_file: .env
+
+    environment:
+      MONGODB_URL: ${MONGODB_URL:-mongodb://mongo:27017}
+      MONGODB_DATABASE: ${MONGODB_DATABASE:-dam}
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      # Mount media library so the app can read/process files
+      - ./data:/data:ro
+      # Mount source code for hot-reload (must match Dockerfile WORKDIR /project)
+      - ./backend:/project/backend
+
+    depends_on:
+      mongo:
+        condition: service_healthy
+      qdrant:
+        condition: service_healthy
+
+    # Allow backend to reach Ollama on the host machine
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+
+  # ── Frontend (Vite / React) ─────────────────────────────────
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: dam-frontend
+    restart: unless-stopped
+
+    ports:
+      - "5173:5173"
+
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+
+    depends_on:
+      - backend
+
+
+volumes:
+  mongodb_data:
+  qdrant_data:

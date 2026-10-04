@@ -1,0 +1,44 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Environment
+.env
+.env.local
+
+# Datasets / local media
+data/
+
+# Database data
+postgres_data/
+qdrant_data/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+node_modules/
+frontend/node_modules/
+frontend/dist/
+__pycache__/
+backend/__pycache__/
+*.pyc
+.pytest_cache/
+data/
+infra/qdrant/
+infra/pgsql/
+infra/pgsql.zip
+*.exe
+*.zip
+infra/qdrant-stdout.log
+.env
+.env.local

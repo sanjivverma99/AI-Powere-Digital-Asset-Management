@@ -1,0 +1,22 @@
+2026-10-03 17:41:16.223 IST [19624] LOG:  starting PostgreSQL 16.9, compiled by Visual C++ build 1943, 64-bit
+2026-10-03 17:41:16.236 IST [19624] LOG:  listening on IPv6 address "::1", port 5432
+2026-10-03 17:41:16.236 IST [19624] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-10-03 17:41:16.318 IST [17152] LOG:  database system was shut down at 2026-10-03 17:41:13 IST
+2026-10-03 17:41:16.358 IST [19624] LOG:  database system is ready to accept connections
+2026-10-04 10:33:48.605 IST [6484] LOG:  starting PostgreSQL 16.9, compiled by Visual C++ build 1943, 64-bit
+2026-10-04 10:33:48.624 IST [6484] LOG:  listening on IPv6 address "::1", port 5432
+2026-10-04 10:33:48.625 IST [6484] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2026-10-04 10:33:48.853 IST [9592] LOG:  database system was interrupted; last known up at 2026-10-04 00:21:44 IST
+2026-10-04 10:33:58.593 IST [9592] LOG:  could not open file "./postgres.log": sharing violation
+2026-10-04 10:33:58.593 IST [9592] DETAIL:  Continuing to retry for 30 seconds.
+2026-10-04 10:33:58.593 IST [9592] HINT:  You might have antivirus, backup, or similar software interfering with the database system.
+2026-10-04 10:34:25.851 IST [9592] LOG:  syncing data directory (fsync), elapsed time: 36.99 s, current path: ./postgresql.auto.conf
+2026-10-04 10:34:25.859 IST [9592] LOG:  database system was not properly shut down; automatic recovery in progress
+2026-10-04 10:34:25.890 IST [9592] LOG:  redo starts at 0/1CA1A78
+2026-10-04 10:34:25.891 IST [9592] LOG:  invalid record length at 0/1CA1B60: expected at least 24, got 0
+2026-10-04 10:34:25.891 IST [9592] LOG:  redo done at 0/1CA1B28 system usage: CPU: user: 0.00 s, system: 0.00 s, elapsed: 0.00 s
+2026-10-04 10:34:25.913 IST [13632] LOG:  checkpoint starting: end-of-recovery immediate wait
+2026-10-04 10:34:25.971 IST [13632] LOG:  checkpoint complete: wrote 3 buffers (0.0%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.011 s, sync=0.013 s, total=0.063 s; sync files=2, longest=0.007 s, average=0.006 s; distance=0 kB, estimate=0 kB; lsn=0/1CA1B60, redo lsn=0/1CA1B60
+2026-10-04 10:34:26.090 IST [6484] LOG:  database system is ready to accept connections
+2026-10-04 10:34:27.247 IST [9948] ERROR:  database "dam" already exists
+2026-10-04 10:34:27.247 IST [9948] STATEMENT:  CREATE DATABASE dam;
